@@ -67,9 +67,9 @@ def get_xray_info( name = '' ):
     #
     # Reference information from Xray Text page
     #
-    xray_info.author = fl[1]
-    xray_info.journal = fl[2]
-    xray_info.title = fl[3]
+    xray_info.author = fl[1].strip(' ').strip('\n')
+    xray_info.journal = fl[2].strip(' ').strip('\n')
+    xray_info.title = fl[3].strip(' ').strip('\n')
     #
     for item in fl:
         if 'WAVELENGTH' in item:
