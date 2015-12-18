@@ -31,9 +31,9 @@ with open('xray_diffraction.csv', 'w') as fout:
     Measurement condition value,Measurement condition units\n')
     for name in name_list[:5]:
         print name
-        two_theta, intensity = ams_lxml.get_dif(name)
-        list_two_theta.append(two_theta)
-        list_intensity.append(intensity)
+        xray_info = ams_lxml.get_xray_info(name)
+        list_two_theta.append(xray_info.two_theta)
+        list_intensity.append(xray_info.intensity)
         fout.write(doi+','+sub_citation_1+','+url+','+name+','+m_name+',Intensity,\"' \
         +repr(intensity)+'\",'+unit_intensity+',2$\Theta$,\"'+repr(two_theta)+'\",' \
         +unit_two_theta+'\n')
