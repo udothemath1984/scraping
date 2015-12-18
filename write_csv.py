@@ -35,7 +35,8 @@ with open('xray_diffraction.csv', 'w') as fout:
         xray_info = ams_lxml.get_xray_info(name)
         list_two_theta.append(xray_info.two_theta)
         list_intensity.append(xray_info.intensity)
-        ref_format = xray_info.author+'. '+xray_info.journal+'. '+xray_info.title
+        ref_format = xray_info.author+'. '+xray_info.journal+'.' # +xray_info.title
+        # remove title from reference because sometime they span to the 4th line
         fout.write(doi+','+sub_citation_1+',\"'+ref_format+'\",'+url+','+name+',' \
         +m_name+',Intensity,\"'+repr(intensity)+'\",'+unit_intensity \
         +',2$\Theta$,\"'+repr(two_theta)+'\",'+unit_two_theta \
